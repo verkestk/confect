@@ -1,4 +1,4 @@
-var confetti = require('..');
+var confect = require('..');
 var expect = require('chai').expect;
 
 describe('original config object', function() {
@@ -27,7 +27,7 @@ describe('original config object', function() {
       }
     };
 
-    confetti(original);
+    confect.resolve(original);
     expect(original).to.deep.equal(originalCopy);
   });
 });
@@ -50,7 +50,7 @@ describe('config object with no substitutions', function() {
       }
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(original);
   });
 });
@@ -66,7 +66,7 @@ describe('config object with variable substitutions', function() {
       key1: "val1",
       key2: "val1"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -79,7 +79,7 @@ describe('config object with variable substitutions', function() {
       key1: 100,
       key2: 100
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -92,7 +92,7 @@ describe('config object with variable substitutions', function() {
       key1: ["val1", 100],
       key2: ["val1", 100]
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -114,7 +114,7 @@ describe('config object with variable substitutions', function() {
         key1b: 100
       }
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -141,7 +141,7 @@ describe('config object with variable substitutions', function() {
       key2: "val1",
       key3: "val3"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -154,7 +154,7 @@ describe('config object with variable substitutions', function() {
       key1: "val1",
       key2: "val1!!!"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -169,7 +169,7 @@ describe('config object with variable substitutions', function() {
       key2: "1000",
       key3: "100!"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -182,7 +182,7 @@ describe('config object with variable substitutions', function() {
       key1: ["val1", 100],
       key2: "{{key1}}!!!"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -201,7 +201,7 @@ describe('config object with variable substitutions', function() {
       },
       key2: "{{key1}}!!!"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -228,7 +228,7 @@ describe('config object with variable substitutions', function() {
       key2: "val1!!!",
       key3: "val3!!!"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -256,7 +256,7 @@ describe('config object with variable substitutions', function() {
       key5: "100.5"
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -280,7 +280,7 @@ describe('config object with variable substitutions', function() {
       key4: "{{key2a}}"
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 });
@@ -296,7 +296,7 @@ describe('config object with key substitutions', function() {
       key1: "val1",
       val1: "val2"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -309,7 +309,7 @@ describe('config object with key substitutions', function() {
       key1: 100,
       "100": 5
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -322,7 +322,7 @@ describe('config object with key substitutions', function() {
       key1: ["val1", 100],
       "{{key1}}": "val2"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -341,7 +341,7 @@ describe('config object with key substitutions', function() {
       },
       "{{key1}}": "val2"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -368,7 +368,7 @@ describe('config object with key substitutions', function() {
       val1: "val4",
       val3: "val5"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -381,7 +381,7 @@ describe('config object with key substitutions', function() {
       key1: "val1",
       "val1!!!": "val2"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -396,7 +396,7 @@ describe('config object with key substitutions', function() {
       "1000": 1,
       "100!": 2
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -409,7 +409,7 @@ describe('config object with key substitutions', function() {
       key1: ["val1", 100],
       "{{key1}}!!!": 1
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -428,7 +428,7 @@ describe('config object with key substitutions', function() {
       },
       "{{key1}}!!!": "val2"
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -455,7 +455,7 @@ describe('config object with key substitutions', function() {
       "val1!!!": 1,
       "val3!!!": 2
     };
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -483,7 +483,7 @@ describe('config object with key substitutions', function() {
       "100.5": 2
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 
@@ -507,7 +507,7 @@ describe('config object with key substitutions', function() {
       "{{key2a}}": 2
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 });
@@ -539,7 +539,7 @@ describe('config object with complex substitutions', function() {
       }
     };
 
-    var resolved = confetti(original);
+    var resolved = confect.resolve(original);
     expect(resolved).to.deep.equal(expected);
   });
 

@@ -4,7 +4,7 @@
  *
  * @example
  * 
- * var confetti = require('confetti');
+ * var confect = require('confect');
  * var config = {
  *   val1: 'hello',
  *   val2: '{{val1}} world!',
@@ -31,13 +31,13 @@
  * //   },
  * //   val5: 'hello world!'
  * // }
- * resolved = confetti(config);
+ * resolved = confect.resolve(config);
  *
  *
  * @returns {object} returns a javascript object in which all referenced
  * config values have been resolved
  */
-function confetti(config) {
+function resolve(config) {
 
   var resolved = configCopy(config);
   var done = false;
@@ -146,6 +146,6 @@ function confetti(config) {
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = confetti;
+  module.exports = { resolve: resolve };
 }
 

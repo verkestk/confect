@@ -1,5 +1,5 @@
 {
-  "name": "confetti",
+  "name": "confect",
   "version": "1.0.0",
   "description": "javascript object config resolution",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/verkestk/confetti.git"
+    "url": "https://github.com/verkestk/confect.git"
   },
   "keywords": [
     "config"
@@ -16,9 +16,9 @@
   "author": "Karlie Verkest (http://karlieann.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/verkestk/confetti/issues"
+    "url": "https://github.com/verkestk/confect/issues"
   },
-  "homepage": "https://github.com/verkestk/confetti",
+  "homepage": "https://github.com/verkestk/confect",
   "devDependencies": {
     "chai": "^2.1.1",
     "mocha": "^2.2.1",
